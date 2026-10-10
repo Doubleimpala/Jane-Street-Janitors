@@ -12,6 +12,31 @@ module tt_um_emulator (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+
+  //I/O Mappings
+  // ui_in[0]:
+  //  Name: Emulation Mode
+  //  Signal: emu_mode
+  //  ...
+  logic emu_mode;
+
+
+
+
+  host_connect host_connect (
+    .clk(clk),
+    .rst(~rst_n),
+    .en(~emu_mode),
+    
+  );
+
+
+  // typedef enum [1:0] {
+  //   uart,
+  //   i2c,
+  //   spi
+  // } protocol;
+
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
