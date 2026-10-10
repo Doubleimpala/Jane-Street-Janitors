@@ -19,8 +19,7 @@ module tt_um_emulator (
   //  Signal: emu_mode
   //  ...
   logic emu_mode;
-
-
+  assign emu_mode = ui_in[0];
 
 
   host_connect host_connect (
